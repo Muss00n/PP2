@@ -20,4 +20,4 @@ for item in data.get('imdata', []):
     mtu = attrs.get('mtu', '')
     
 
-    print(f"{dn:<50} {descr:<20} {speed:<7} {mtu:<6}")
+    print(f"{dn:<20} {descr:<28} {speed:<8} {mtu:<10}")
