@@ -1,4 +1,3 @@
-# Task 2: Read and print file contents
 filename = "sample.txt"
 
 try:
