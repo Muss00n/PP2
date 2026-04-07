@@ -6,7 +6,6 @@ DECLARE
     i INT;
 BEGIN
     FOR i IN 1 .. array_upper(p_names, 1) LOOP
-        -- Validation: check if phone is exactly 11 digits
         IF length(p_phones[i]) = 11 THEN
             INSERT INTO phonebook (username, phone_number)
             VALUES (p_names[i], p_phones[i])

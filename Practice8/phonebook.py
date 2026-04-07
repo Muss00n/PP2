@@ -4,7 +4,6 @@ from connect import get_connection
 def search_by_pattern(pattern):
     conn = get_connection()
     cur = conn.cursor()
-    # Calling a FUNCTION uses SELECT
     cur.execute("SELECT * FROM get_contacts_by_pattern(%s)", (pattern,))
     for row in cur.fetchall():
         print(row)
@@ -14,7 +13,6 @@ def search_by_pattern(pattern):
 def upsert_user(name, phone):
     conn = get_connection()
     cur = conn.cursor()
-    # Calling a PROCEDURE uses CALL
     cur.execute("CALL upsert_contact(%s, %s)", (name, phone))
     conn.commit()
     cur.close()
@@ -40,7 +38,6 @@ def delete_user(identifier):
     print("Delete procedure executed.")
 
 if __name__ == "__main__":
-    # Example Tests:
     print("Testing Search:")
     search_by_pattern("8707")
     
