@@ -206,18 +206,17 @@ def main():
             # --- Mouse motion: freehand draw or eraser ---
             if event.type == pygame.MOUSEMOTION:
                 if tool == 'draw' and mouse_buttons[0]:
-                    points = points + [event.pos]
-                    points = points[-256:]
+                    points.append(event.pos)
+                    # Draw immediately onto canvas as the mouse moves
+                    if len(points) >= 2:
+                        drawLineBetween(canvas, 200, points[-2], points[-1], radius, mode, custom_color)
                 elif tool == 'eraser' and mouse_buttons[0]:
                     pygame.draw.circle(canvas, (0, 0, 0), event.pos, radius)
 
-        # --- Draw freehand strokes onto canvas ---
-        if tool == 'draw' and len(points) > 1:
-            i = 0
-            while i < len(points) - 1:
-                drawLineBetween(canvas, i, points[i], points[i+1], radius, mode, custom_color)
-                i += 1
-            points = [points[-1]]   # Keep last point for continuity
+            # Clear points when mouse released so next stroke starts fresh
+            if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                if tool == 'draw':
+                    points = []
 
         # --- Compose frame ---
         screen.blit(canvas, (0, 0))

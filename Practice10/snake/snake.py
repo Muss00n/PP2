@@ -39,13 +39,6 @@ snake_body = [
     [70,  50],
 ]
 
-# --- Food system ---
-# Each food item is a dict:
-#   'pos'     : [x, y]         – position on grid
-#   'weight'  : int            – points awarded when eaten
-#   'color'   : pygame.Color   – visual color based on weight
-#   'spawn'   : float          – time.time() when it was created
-#   'lifetime': float          – seconds before it disappears
 
 # Food weight types: (weight, color, lifetime_seconds)
 FOOD_TYPES = [
