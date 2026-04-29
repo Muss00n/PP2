@@ -1,0 +1,18 @@
+[
+  {
+    "name": "mus",
+    "score": 70,
+    "dist": 159,
+    "coins": 10,
+    "hp": 0,
+    "difficulty": "easy"
+  },
+  {
+    "name": "mus",
+    "score": 57,
+    "dist": 81,
+    "coins": 9,
+    "hp": 0,
+    "difficulty": "easy"
+  }
+]
